@@ -63,7 +63,37 @@
 			Edgeだとメニュー→拡張機能→拡張機能の管理。<br>
 			Chromeのアドレスバー兼検索バーのことをOmniboxというんですね。初めて知りました。<br>
 			そういえばVimiumという拡張機能で使ってる検索ボックスがVomnibarという名前だったな…<br>
-			で、拡張機能の管理画面から開発者モードに移行し、「展開して読み込み」。
-			<div class="error"></div>
+			で、拡張機能の管理画面から開発者モードに移行し、「拡張機能のパック」。<br>
+			<button type="button" class="foldbutton">この辺無駄にぐだついていただけなので伏せます。</button>
+			<div class="fold">
+				「拡張ルートディレクトリ」にさっきまでのファイルを置いたフォルダを指定し、「拡張機能のパック」。<br>
+				<div class="error">指定された拡張機能の秘密キーは既にあります。そのキーを再利用するか、</div>
+				最後まで言えや<br>
+				えっ確かに秘密キーを入力する欄らしきものがあるけどそれオプションって書いてあるから入れなくてもいいんじゃないの？<br>
+				そもそもここでいう秘密キーが何なのかも全くわからんので、こういう時の常としてエラーコード丸々検索します。<br>
+				<a href="https://jpdsi.github.io/blog/internet-explorer-microsoft-edge/how-to-deploy-edge-extensions/">いい感じの情報</a>が見つかりました。<br>
+				なんでもさっき使ったフォルダの一つ上の階層にpemファイルというものが出来ていて、それをEdgeにドラッグ＆ドロップするといいらしい。<br>
+				（実行）あれ？上手く行かないな？ロードされずに中身の文字列が表示されてる。しかもデータのパックにしては小さすぎるというか、<br>
+				…これPRIVATE KEYって書いてあるじゃん…<br>
+				どう考えてもpemファイルではない。<br>
+				おかしいなと思って見返したらデータのパックはCRXファイルという形式で、pemファイルはそもそも秘密鍵だった。<br>
+				つまり読み間違い。凡ミスじゃねえか！<br>
+				でもあれ？CRXファイルの方はどこにも見当たらないんだが…<br>
+				うーん？？？<br>
+				（しばらく後）なんか適当に操作したらなんか出来た…<br>
+				具体的には「展開して読み込み」でさっきまでのフォルダを読み込んだ。<br>
+				えっ？展開って何を展開したん？？？<br>
+				もしかして圧縮されてたら展開して読み込み、されてなかったらそのまま読み込みみたいな機能なんか？？？<br>
+			</div>
+		</div>
+				<script>
+					let fobos=document.getElementsByClassName("foldbutton");
+					fobos.forEach((fobo)=>{
+											fobo.addEventListener("click",function(){
+																	let folded=this.nextElementSibling.style.display;
+																	folded= (folded=="block")?"none"|"block";
+																}
+										}
+				</script>
 	</body>
 </html>
