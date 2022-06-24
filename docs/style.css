@@ -1,3 +1,6 @@
+body {
+	background-color: bisque;
+}
 h1 {
 }
 h2 {
@@ -6,7 +9,20 @@ h2 {
 }
 .error {
   color: red;
+	border: 1px solid gray;
 }
 .fold {
 	display: none;
+}
+a {
+	color: crimson;
+}
+a:visited {
+	color: maroon;
+}
+a:hover {
+	color: indianred;
+}
+a.pun:hover {
+	color: chocolate;
 }
