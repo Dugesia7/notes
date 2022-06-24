@@ -86,14 +86,15 @@
 				もしかして圧縮されてたら展開して読み込み、されてなかったらそのまま読み込みみたいな機能なんか？？？<br>
 			</div>
 		</div>
-				<script>
-					let fobos=document.getElementsByClassName("foldbutton");
-					fobos.forEach((fobo)=>{
-											fobo.addEventListener("click",function(){
-																	let folded=this.nextElementSibling.style.display;
-																	folded= (folded=="block")?"none":"block";
-																}
-										}
-				</script>
+		<script>
+			let fobos=document.getElementsByClassName("foldbutton");
+			//[...x] coversion to array using spread oprerator
+			[...fobos].forEach((fobo)=>{
+							fobo.addEventListener("click",function(){
+											let folded=this.nextElementSibling;
+											folded.style.display= (folded.style.display=="block")?"none":"block";
+										})
+						});
+		</script>
 	</body>
 </html>
